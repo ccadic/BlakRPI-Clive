@@ -1,0 +1,148 @@
+
+(rules PCB 88RPI
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 69)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.4)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+    (clear 150.2 (type AT32U4_AT32U4))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_800:500_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:500_um" "Via[0-1]_800:500_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:500_um-kicad_default" "Via[0-1]_800:500_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-AT32U4" "Via[0-1]_800:400_um" AT32U4
+  )
+  (via 
+    "Via[0-1]_800:500_um-AT32U4" "Via[0-1]_800:500_um" AT32U4
+  )
+  (via 
+    "Via[0-1]_800:400_um-POWER5V" "Via[0-1]_800:400_um" POWER5V
+  )
+  (via 
+    "Via[0-1]_800:500_um-POWER5V" "Via[0-1]_800:500_um" POWER5V
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    AT32U4 "Via[0-1]_800:400_um-AT32U4"
+  )
+  (via_rule
+    POWER5V "Via[0-1]_800:500_um-POWER5V"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND XTAL1 XTAL2 UCAP ROW0 "Net-(D1-Pad2)" "Net-(D2-Pad2)" ROW1
+    ROW2 "Net-(D3-Pad2)" "Net-(D4-Pad2)" ROW3 "Net-(D5-Pad2)" ROW4 "Net-(D6-Pad2)" "Net-(D7-Pad2)"
+    "Net-(D8-Pad2)" "Net-(D9-Pad2)" "Net-(D10-Pad2)" "Net-(D11-Pad2)" "Net-(D12-Pad2)" "Net-(D13-Pad2)" "Net-(D14-Pad2)" "Net-(D15-Pad2)"
+    "Net-(D16-Pad2)" "Net-(D17-Pad2)" "Net-(D18-Pad2)" "Net-(D19-Pad2)" "Net-(D20-Pad2)" "Net-(D21-Pad2)" "Net-(D22-Pad2)" "Net-(D23-Pad2)"
+    "Net-(D24-Pad2)" "Net-(D25-Pad2)" "Net-(D26-Pad2)" "Net-(D27-Pad2)" "Net-(D28-Pad2)" "Net-(D29-Pad2)" "Net-(D30-Pad2)" "Net-(D31-Pad2)"
+    "Net-(D32-Pad2)" "Net-(D33-Pad2)" "Net-(D34-Pad2)" "Net-(D35-Pad2)" "Net-(D36-Pad2)" "Net-(D37-Pad2)" "Net-(D38-Pad2)" "Net-(D39-Pad2)"
+    "Net-(D40-Pad2)" "Net-(D41-Pad2)" "Net-(D42-Pad2)" "Net-(D43-Pad2)" "Net-(D44-Pad2)" "Net-(D45-Pad2)" "Net-(D46-Pad2)" "Net-(D47-Pad2)"
+    "Net-(D48-Pad2)" "Net-(D49-Pad2)" "Net-(D50-Pad2)" "Net-(D51-Pad2)" "Net-(D52-Pad2)" "Net-(D53-Pad2)" "Net-(D54-Pad2)" "Net-(D55-Pad2)"
+    "Net-(D56-Pad2)" "Net-(D57-Pad2)" "Net-(D58-Pad2)" "Net-(D59-Pad2)" "Net-(D60-Pad2)" RESET "Net-(R2-Pad2)" COL11
+    COL0 COL1 COL2 COL3 COL4 COL5 COL6 COL7
+    COL8 COL9 COL10 "D-" D+ SCK MOSI MISO
+    "Net-(J4-PadA7)" "Net-(J4-PadA6)" LED1 /atmega/VBUS5v /atmega/SDAR /atmega/SCLR /atmega/IO4R /atmega/TXD0
+    /atmega/RXD0 /atmega/IO17R /atmega/IO18R /atmega/IO27R /atmega/GIO22R /atmega/IO23R /atmega/IO24R /atmega/MOSIR
+    /atmega/MISOR /atmega/IO25R /atmega/CLKR /atmega/CE0 /atmega/CE1 /atmega/IDSDR /atmega/IDSC /atmega/IO5R
+    /atmega/IO6R /atmega/IO12R /atmega/IO13R /atmega/IO16R /atmega/IO26R /atmega/IO20R /atmega/IO21R /atmega/USBRPID+
+    "/atmega/USBRPID-" "Net-(J10-Pad2)" "Net-(J4-PadA5)" "Net-(J4-PadB5)" LED5volts LED0 LED2 LED3
+    LED4 /atmega/IO19R
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class AT32U4
+    /atmega/3.3v
+    (clearance_class AT32U4)
+    (via_rule AT32U4)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class POWER5V
+    5volts BAT+
+    (clearance_class POWER5V)
+    (via_rule POWER5V)
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
